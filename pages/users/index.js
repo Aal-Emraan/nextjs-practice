@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const index = ({ users, notFound }) => {
 	console.log(notFound);
@@ -6,7 +7,10 @@ const index = ({ users, notFound }) => {
 		<div>
 			<h1>this is users: {users.length}</h1>
 			{users.map((user) => (
-				<p key={user.id}>{user.name}</p>
+				<p key={user.id}>
+					{user.name}{" "}
+					<Link href={`/users/${user.id}`}>Go to details</Link>
+				</p>
 			))}
 		</div>
 	);
